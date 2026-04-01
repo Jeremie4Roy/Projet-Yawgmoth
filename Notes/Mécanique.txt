@@ -1,0 +1,9 @@
+Ratios des engrenages
+
+
+Mélangeur:
+
+engrenage initial: 59
+engrenage final: 12 dents
+
+ratio:  59:12 -> 

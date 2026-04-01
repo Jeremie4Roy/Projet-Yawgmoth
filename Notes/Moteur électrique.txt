@@ -1,0 +1,4 @@
+Moteur: N20
+Voltage recommandé: ~6-12V
+Ampérage recommandé: 0.04A
+Va avoir besoin d'un chip pour driver le power. 

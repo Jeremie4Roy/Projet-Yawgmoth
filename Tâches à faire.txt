@@ -1,0 +1,36 @@
+-Schémas bloc[]
+	-Global[]
+	-Algorithme[]
+
+-Trouver pièces critiques[]
+	-CPU[]
+		-Dallas? STM32? PIC? ESP32?[]
+			->STM103
+	-Moteur[]
+		-Quelle grosseur?[]
+			->N20
+		-Quels drivers?[]
+			->
+	-LEDs(Remplace l'écran)[]
+		-> Chiffres pour HPs & Energy counters & Storm Counter
+		-> bar verte pour poison counters
+
+	-Boutons[]
+		-Combien?
+			->1 pour mélanger, au moins 2 pour la vie, plus pour autres fonctionnalités
+		-Symboles[]
+			->cartes pour mélanger, cœur pour la vie, plus dépendamment des fonctionnalités(à faire en dernier quand tout le reste fonctionne)
+	-Mélangeur manuel de cartes [x]
+		->Commandé sur Amazon (Demander à "Ami en génie mécanique" pour la mécanique dans le future)
+-Schémas électrique []
+	-Traces des pièces
+	-Test points près du CPU (si besoin)
+-Schémas PCB []
+	-Traces des pièces
+-Codage[]
+	-Tests unitaires
+	-Algorithme
+	
+-Tests finaux[]
+	-Fonctionnement de tout le système
+
