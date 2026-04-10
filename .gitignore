@@ -63,5 +63,6 @@ dkms.conf
 
 #Projet Altium
 *.PrjPcb
-*/History/
+*/History/*
 *.PrjPcbStructure
+*/__Previews/*
