@@ -65,4 +65,5 @@ dkms.conf
 *.PrjPcb
 */History/*
 *.PrjPcbStructure
-*/__Previews/*
+*/Altium/*/__Previews/*
+*/Altium/*/Project Logs for Projet-Yawgmoth
