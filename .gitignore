@@ -67,3 +67,4 @@ dkms.conf
 *.PrjPcbStructure
 */Altium/*/__Previews/*
 */Altium/*/Project Logs for Projet-Yawgmoth
+*/Altium/*/Generate Flies/*
