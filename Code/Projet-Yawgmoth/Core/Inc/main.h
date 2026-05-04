@@ -61,12 +61,12 @@ void Error_Handler(void);
 #define EnergyDownSW_GPIO_Port GPIOA
 #define EnergyUpSW_Pin GPIO_PIN_2
 #define EnergyUpSW_GPIO_Port GPIOA
-#define HealthDoownSW_Pin GPIO_PIN_3
-#define HealthDoownSW_GPIO_Port GPIOA
+#define HealthDownSW_Pin GPIO_PIN_3
+#define HealthDownSW_GPIO_Port GPIOA
 #define HealthUpSW_Pin GPIO_PIN_4
 #define HealthUpSW_GPIO_Port GPIOA
-#define MotorOut_Pin GPIO_PIN_4
-#define MotorOut_GPIO_Port GPIOB
+#define MotorOUT_Pin GPIO_PIN_4
+#define MotorOUT_GPIO_Port GPIOB
 #define MotorSW_Pin GPIO_PIN_5
 #define MotorSW_GPIO_Port GPIOB
 #define PoisonRstSW_Pin GPIO_PIN_6
