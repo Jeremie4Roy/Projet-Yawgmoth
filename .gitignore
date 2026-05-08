@@ -70,3 +70,7 @@ dkms.conf
 */Altium/*/Generate Files/*
 */Altium/*/History/*
 Code/Projet-Yawgmoth/.vscode/settings.json
+
+*/.vscode/*
+*/STM32F103XX_FLASH.ld
+*/startup_stm32f103xb.s
