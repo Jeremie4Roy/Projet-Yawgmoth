@@ -65,7 +65,10 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  unsigned char ucHealthCounter = 20;
+  unsigned char ucEnergyCounter = 0;
+  unsigned char ucStormCounter = 0;
+  unsigned char ucPoisonCounter = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/

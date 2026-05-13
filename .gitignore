@@ -75,9 +75,8 @@ dkms.conf
 */startup_stm32f103xb.s
 
 # Visual Studio Code
-.vscode/*
-build/*
-build/debug/*
+Code/*/.vscode/*
+Code/*/build/*
 .stm32env
 openocd.cfg
 STM32-for-VSCode.config.yaml
