@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define MotorTimer = 1000;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -69,6 +69,8 @@ int main(void)
   unsigned char ucEnergyCounter = 0;
   unsigned char ucStormCounter = 0;
   unsigned char ucPoisonCounter = 0;
+  unsigned char ucMotorCounter = MotorTimer;
+  bit bMotorState = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -97,9 +99,42 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    // Read the state of the buttons and update the counters accordingly
+    if (HAL_GPIO_ReadPin(HealthUpSW_GPIO_Port, HealthUpSW_Pin) == GPIO_PIN_SET) {
+      ucHealthCounter++;
+    }
+    if (HAL_GPIO_ReadPin(HealthDownSW_GPIO_Port, HealthDownSW_Pin) == GPIO_PIN_SET) {
+      ucHealthCounter--;
+    }
+    if (HAL_GPIO_ReadPin(EnergyUpSW_GPIO_Port, EnergyUpSW_Pin) == GPIO_PIN_SET) {
+      ucEnergyCounter++;
+    }
+    if (HAL_GPIO_ReadPin(EnergyDownSW_GPIO_Port, EnergyDownSW_Pin) == GPIO_PIN_SET) {
+      ucEnergyCounter--;
+    }
+    if (HAL_GPIO_ReadPin(StormUpSW_GPIO_Port, StormUpSW_Pin) == GPIO_PIN_SET) {
+      ucStormCounter++;
+    }
+    if (HAL_GPIO_ReadPin(StormRstSW_GPIO_Port, StormRstSW_Pin) == GPIO_PIN_SET) {
+      ucStormCounter = 0;
+    }
+    if (HAL_GPIO_ReadPin(PoisonUpSW_GPIO_Port, PoisonUpSW_Pin) == GPIO_PIN_SET) {
+      ucPoisonCounter++;
+    }
+    if (HAL_GPIO_ReadPin(PoisonRstSW_GPIO_Port, PoisonRstSW_Pin) == GPIO_PIN_SET) {
+      ucPoisonCounter = 0;
+    }
+
+    //Send values to the SPI pins
+   /* SPI_SendData(ucHealthCounter);
+    SPI_SendData(ucEnergyCounter); 
+    SPI_SendData(ucStormCounter);
+    SPI_SendData(ucPoisonCounter);*/
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
   }
   /* USER CODE END 3 */
 }
