@@ -79,7 +79,8 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  SPI_Init(); 
+  MAX7219_Init(); 
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -118,19 +119,15 @@ int main(void)
     if (HAL_GPIO_ReadPin(StormRstSW_GPIO_Port, StormRstSW_Pin) == GPIO_PIN_SET) {
       ucStormCounter = 0;
     }
-    if (HAL_GPIO_ReadPin(PoisonUpSW_GPIO_Port, PoisonUpSW_Pin) == GPIO_PIN_SET) {
+    if ((HAL_GPIO_ReadPin(PoisonUpSW_GPIO_Port, PoisonUpSW_Pin) == GPIO_PIN_SET) && ucPoisonCounter <= 10 ) {
       ucPoisonCounter++;
     }
     if (HAL_GPIO_ReadPin(PoisonRstSW_GPIO_Port, PoisonRstSW_Pin) == GPIO_PIN_SET) {
       ucPoisonCounter = 0;
     }
-
-    //Send values to the SPI pins
-   /* SPI_SendData(ucHealthCounter);
-    SPI_SendData(ucEnergyCounter); 
-    SPI_SendData(ucStormCounter);
-    SPI_SendData(ucPoisonCounter);*/
-
+    if (HAL_GPIO_ReadPin(MotorSW_GPIO_Port, MotorSW_Pin) == GPIO_PIN_SET) {
+      bMotorState = !bMotorState; // Toggle motor state
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -221,6 +218,29 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void ShowHealth(unsigned char ucHealthCounter) {
+  // Display the health counter on the MAX7219 display
+  MAX7219_Display(1, ucHealthCounter % 10); // Display the units digit
+  MAX7219_Display(2, ucHealthCounter / 10); // Display the tens digit
+}
+
+void ShowEnergy(unsigned char ucEnergyCounter) {
+  // Display the energy counter on the MAX7219 display
+  MAX7219_Display(3, ucEnergyCounter % 10); // Display the units digit
+  MAX7219_Display(4, ucEnergyCounter / 10); // Display the tens digit
+}
+
+void ShowStorm(unsigned char ucStormCounter) {
+  // Display the storm counter on the MAX7219 display
+  MAX7219_Display(5, ucStormCounter % 10); // Display the units digit
+  MAX7219_Display(6, ucStormCounter / 10); // Display the tens digit
+}
+
+void ShowPoison(unsigned char ucPoisonCounter) {
+  // Display the poison counter on the MAX7219 displays
+  MAX7219_Display(7, ucPoisonCounter % 10); // Display the units digit (poison counter is only 0-9, you lose at 10 or more)
+}
+
 
 /* USER CODE END 4 */
 
