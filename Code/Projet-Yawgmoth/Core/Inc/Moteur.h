@@ -1,0 +1,1 @@
+void Moteur_SetState(bool bState);
