@@ -125,9 +125,8 @@ int main(void)
     if (HAL_GPIO_ReadPin(PoisonRstSW_GPIO_Port, PoisonRstSW_Pin) == GPIO_PIN_SET) {
       ucPoisonCounter = 0;
     }
-    if (HAL_GPIO_ReadPin(MotorSW_GPIO_Port, MotorSW_Pin) == GPIO_PIN_SET) {
-      bMotorState = !bMotorState; // Toggle motor state
-    }
+
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

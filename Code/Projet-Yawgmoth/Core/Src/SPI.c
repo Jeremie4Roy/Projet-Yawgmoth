@@ -1,5 +1,23 @@
 #include "SPI.h"
 
+void SPI_Init(void) {
+  // Initialize the GPIO pins for SPI communication
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  // Enable the clock for the GPIO port
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  // Configure SCK, MOSI, and SS pins as output
+  GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_5 | GPIO_PIN_4; // SCK, MOSI, SS
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  // Set the SS pin high to deselect the slave device initially
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+}
+
 void SPI_SendData(unsigned char data) {
   // Set the Slave Select (SS) pin low to select the slave device
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
@@ -24,23 +42,6 @@ void SPI_SendData(unsigned char data) {
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
 }
 
-void SPI_Init(void) {
-  // Initialize the GPIO pins for SPI communication
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  // Enable the clock for the GPIO port
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  // Configure SCK, MOSI, and SS pins as output
-  GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_5 | GPIO_PIN_4; // SCK, MOSI, SS
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  // Set the SS pin high to deselect the slave device initially
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-}
 
 unsigned char SPI_ReceiveData() {
   unsigned char receivedData = 0;
