@@ -69,8 +69,8 @@ void Error_Handler(void);
 #define MotorOut_GPIO_Port GPIOB
 #define MotorSW_Pin GPIO_PIN_5
 #define MotorSW_GPIO_Port GPIOB
-#define PoisonRstSW_Pin GPIO_PIN_6
-#define PoisonRstSW_GPIO_Port GPIOB
+#define PoisonRstSw_Pin GPIO_PIN_6
+#define PoisonRstSw_GPIO_Port GPIOB
 #define PoisonUpSW_Pin GPIO_PIN_7
 #define PoisonUpSW_GPIO_Port GPIOB
 #define StormRstSW_Pin GPIO_PIN_8
