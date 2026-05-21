@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "Bouton.h"
+#include "MAX7219.h"
 
 /* USER CODE END Includes */
 
@@ -31,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define MOTOR_ON_DURATION 1000 // Duration to keep the motor on in milliseconds
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -70,7 +72,10 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  unsigned char ucHealthCounter = 20;
+  unsigned char ucEnergyCounter = 0;
+  unsigned char ucPoisonCounter = 0;
+  unsigned char ucStormCounter = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -101,9 +106,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    DisplayHealth(ucHealthCounter);
+    DisplayEnergy(ucEnergyCounter);
+    DisplayPoison(ucPoisonCounter);
+    DisplayStorm(ucStormCounter);
   }
   /* USER CODE END 3 */
 }
@@ -261,7 +271,24 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void DisplayHealth(unsigned char health) {
+  MAX7219_Display(0, health / 10); // Display tens digit on the first digit);
+  MAX7219_Display(1, health % 10); // Display units digit on the second digit);
+}
 
+void DisplayEnergy(unsigned char energy) {
+  MAX7219_Display(2, energy / 10); // Display tens digit on the third digit);
+  MAX7219_Display(3, energy % 10); // Display units digit on the fourth digit);
+}
+
+void DisplayStorm(unsigned char storm) {
+  MAX7219_Display(4, storm / 10); // Display tens digit on the fifth digit);
+  MAX7219_Display(5, storm % 10); // Display units digit on the sixth digit);
+}
+
+void DisplayPoison(unsigned char poison) {
+  MAX7219_Display(6, poison); // Display poison value on the seventh digit(poison is between 0 and 9, you automatically lose at ten or more);
+}
 /* USER CODE END 4 */
 
 /**

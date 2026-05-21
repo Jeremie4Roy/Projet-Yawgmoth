@@ -79,6 +79,5 @@ Code/*/.vscode/*
 Code/*/build/*
 .stm32env
 openocd.cfg
-STM32-for-VSCode.config.yaml
 STM32Make.make
 Code/Projet-Yawgmoth/Makefile

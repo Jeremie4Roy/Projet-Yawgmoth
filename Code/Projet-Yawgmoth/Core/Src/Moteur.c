@@ -1,12 +1,10 @@
 #include "Moteur.h"
-
+#include "main.h"
 
 void Moteur_SetState(bool bState) {
   if (bState) {
-    // Set the motor control pin high to start the motor
-    HAL_GPIO_WritePin(GPIOC, MotorControl_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(MotorOut_GPIO_Port, MotorOut_Pin, GPIO_PIN_SET); // Turn on the motor
   } else {
-    // Set the motor control pin low to stop the motor
-    HAL_GPIO_WritePin(GPIOC, MotorControl_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(MotorOut_GPIO_Port, MotorOut_Pin, GPIO_PIN_RESET); // Turn off the motor
   }
 }

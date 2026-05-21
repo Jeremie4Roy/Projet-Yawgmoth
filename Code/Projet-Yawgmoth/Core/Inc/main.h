@@ -53,7 +53,10 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void DisplayEnergy(unsigned char energy);
+void DisplayHealth(unsigned char health);
+void DisplayPoison(unsigned char poison);
+void DisplayStorm(unsigned char storm);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
