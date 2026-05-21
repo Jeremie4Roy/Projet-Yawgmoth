@@ -81,3 +81,4 @@ Code/*/build/*
 openocd.cfg
 STM32Make.make
 Code/Projet-Yawgmoth/Makefile
+Code/Projet-Yawgmoth/.mxproject
