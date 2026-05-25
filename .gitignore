@@ -82,3 +82,8 @@ openocd.cfg
 STM32Make.make
 Code/Projet-Yawgmoth/Makefile
 Code/Projet-Yawgmoth/.mxproject
+Code/Projet-Yawgmoth/
+Code/Projet-Yawgmoth/STM32Make.make
+Code/Projet-Yawgmoth/STM32F103XX_FLASH.id
+Code/Projet-Yawgmoth/.stm32env
+STM32-for-VSCode.config.yaml
