@@ -1,6 +1,5 @@
 #ifndef SPI_H
 #define SPI_H
-void SPI_Init(void);
-void SPI_SendData(unsigned char data);
-void SPI_ReceiveData(void);
+#include "main.h"
+void SPI_SendData( SPI_HandleTypeDef hspi1,unsigned char data);
 #endif

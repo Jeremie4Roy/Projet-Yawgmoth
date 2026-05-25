@@ -106,6 +106,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -271,22 +272,22 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void DisplayHealth(unsigned char health) {
-  MAX7219_Display(0, health / 10); // Display tens digit on the first digit);
-  MAX7219_Display(1, health % 10); // Display units digit on the second digit);
+  MAX7219_Display(hspi1, 0, health / 10); // Display tens digit on the first digit);
+  MAX7219_Display(hspi1, 1, health % 10); // Display units digit on the second digit);
 }
 
 void DisplayEnergy(unsigned char energy) {
-  MAX7219_Display(2, energy / 10); // Display tens digit on the third digit);
-  MAX7219_Display(3, energy % 10); // Display units digit on the fourth digit);
+  MAX7219_Display(hspi1, 2, energy / 10); // Display tens digit on the third digit);
+  MAX7219_Display(hspi1, 3, energy % 10); // Display units digit on the fourth digit);
 }
 
 void DisplayStorm(unsigned char storm) {
-  MAX7219_Display(4, storm / 10); // Display tens digit on the fifth digit);
-  MAX7219_Display(5, storm % 10); // Display units digit on the sixth digit);
+  MAX7219_Display(hspi1, 4, storm / 10); // Display tens digit on the fifth digit);
+  MAX7219_Display(hspi1, 5, storm % 10); // Display units digit on the sixth digit);
 }
 
 void DisplayPoison(unsigned char poison) {
-  MAX7219_Display(6, poison); // Display poison value on the seventh digit(poison is between 0 and 9, you automatically lose at ten or more);
+  MAX7219_Display(hspi1, 6, poison); // Display poison value on the seventh digit(poison is between 0 and 9, you automatically lose at ten or more);
 }
 /* USER CODE END 4 */
 
