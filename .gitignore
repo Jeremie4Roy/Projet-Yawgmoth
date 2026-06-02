@@ -87,4 +87,4 @@ Code/Projet-Yawgmoth/STM32Make.make
 Code/Projet-Yawgmoth/STM32F103XX_FLASH.id
 Code/Projet-Yawgmoth/.stm32env
 STM32-for-VSCode.config.yaml
-Code/Projet-Yawgmoth/Drivers/*
+Code/Projet-Yawgmoth/Drivers/
